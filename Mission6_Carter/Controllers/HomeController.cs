@@ -6,9 +6,9 @@ namespace Mission6_Carter.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private MoviesContext _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(MoviesContext logger)
     {
         _logger = logger;
     }
@@ -28,5 +28,12 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Movies(Movie movie)
+    {
+        _logger.Movies.Add(movie); //add record to db
+        _logger.SaveChanges(); //save changes
+        
+        return View("Index", movie);
+    }
     
 }
