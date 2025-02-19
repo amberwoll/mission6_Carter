@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Mission6_AmberCarter.Models;
+using Mission6_Carter.Models;
 
-namespace Mission6_AmberCarter.Controllers;
+namespace Mission6_Carter.Controllers;
 
 public class HomeController : Controller
 {
@@ -22,10 +22,11 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    
+    public IActionResult Movies()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View();
     }
+
+    
 }

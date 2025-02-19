@@ -1,4 +1,4 @@
-namespace Mission6_AmberCarter.Models;
+namespace Mission6_Carter.Models;
 
 public class ErrorViewModel
 {
