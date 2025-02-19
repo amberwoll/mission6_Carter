@@ -16,8 +16,9 @@ public class Movie
     [Required]
     public int Rating { get; set; }
     public bool Edited { get; set; }
-    public string LentTo { get; set; }
+    public string? LentTo { get; set; } = "";
+
     [StringLength(25, MinimumLength = 0, ErrorMessage = "Notes can be a maximum of 25 characters.")]
-    public string Notes { get; set; }
-    
+    public string? Notes { get; set; } = "";
+
 }
