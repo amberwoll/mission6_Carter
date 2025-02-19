@@ -22,12 +22,12 @@ public class HomeController : Controller
     {
         return View();
     }
-    
+    [HttpGet]
     public IActionResult Movies()
     {
         return View();
     }
-
+    [HttpPost]
     public IActionResult Movies(Movie movie)
     {
         _logger.Movies.Add(movie); //add record to db
