@@ -61,12 +61,12 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Edit(int id)
     {
-        var record = _context.Movies
+        var recordToEdit = _context.Movies
             .Single(x => x.MovieId == id);
         
         ViewBag.Categories = _context.Categories
             .OrderBy(x => x.CategoryName).ToList();
-        return View("Movies", record);
+        return View("Movies", recordToEdit);
     }
 
     [HttpPost]
@@ -79,10 +79,10 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Delete(int id)
     {
-        var record = _context.Movies
+        var recordToDelete = _context.Movies
             .Single(x => x.MovieId == id);
         
-        return View(record);
+        return View(recordToDelete);
     }
 
     [HttpPost]
