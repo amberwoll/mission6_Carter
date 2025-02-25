@@ -10,4 +10,6 @@ public class MoviesContext : DbContext
     }
     
     public DbSet<Movie> Movies { get; set; } //db set of type applications, sets the table name
+    public DbSet<Category> Categories { get; set; }
 }
+
