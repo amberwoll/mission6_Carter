@@ -1,8 +1,10 @@
 @{
-    ViewData["Title"] = "View Movies";
+    ViewData["Title"] = "View Movie List";
 }
 
 @model List<Movie>
+
+<h1>@ViewData["Title"]</h1>
 
 <table class="table table-bordered" >
     <thead class="fw-bold">
@@ -32,8 +34,8 @@
             <td>@temp.CopiedToPlex</td>
             <td>@temp.Notes</td>
 
-            @* <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@temp.ApplicationId">Edit</a></td> *@
-            @* <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@temp.ApplicationId">Delete</a></td> *@
+            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@temp.MovieId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@temp.MovieId">Delete</a></td>
         </tr>
         </tbody>
     }

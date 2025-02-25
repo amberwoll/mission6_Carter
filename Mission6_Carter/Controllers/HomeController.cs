@@ -57,4 +57,40 @@ public class HomeController : Controller
             .OrderBy(x => x.Title).ToList();
         return View(movies);
     }
+    
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var record = _context.Movies
+            .Single(x => x.MovieId == id);
+        
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName).ToList();
+        return View("Movies", record);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Movie movie)
+    {
+        _context.Update(movie);
+        _context.SaveChanges();
+        return RedirectToAction("ViewMovies");
+    }
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var record = _context.Movies
+            .Single(x => x.MovieId == id);
+        
+        return View(record);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(Movie movie)
+    {
+        _context.Movies.Remove(movie);
+        _context.SaveChanges();
+        return RedirectToAction("ViewMovies");
+    }
 }
+
